@@ -27,4 +27,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="DoMagic" />
+    <Button
+        android:id="@+id/a_main_btn_alarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="doAlarm"/>
+
 </LinearLayout>
