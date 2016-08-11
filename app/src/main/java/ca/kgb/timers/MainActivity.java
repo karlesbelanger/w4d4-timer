@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,12 +21,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void DoMagic(View view) {
-        Handler handler = new Handler();
+        final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
+            public int counter = 0;
+            TextView textView = (TextView)findViewById(R.id.number);
             @Override
             public void run() {
-                Log.d(TAG, "run: ");
-                mProgressBar.setVisibility(View.INVISIBLE);
+                //Log.d(TAG, "run: " + Thread.currentThread());
+               // mProgressBar.setVisibility(View.INVISIBLE);
+                handler.postDelayed(this, 1000);
+                counter++;
+                textView.setText(counter + "/" + 100);
+                mProgressBar.setProgress(counter);
             }
         }, 1000);
     }
